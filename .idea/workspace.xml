@@ -11,28 +11,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cf29ed3-e0e4-4570-b048-4304f9959320" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Canciones.html" beforeDir="false" afterPath="$PROJECT_DIR$/Canciones.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MisCanciones.html" beforeDir="false" afterPath="$PROJECT_DIR$/MisCanciones.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pruebas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pruebas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sense1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sense1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SenseSound.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SenseSound.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/canciones.txt" beforeDir="false" afterPath="$PROJECT_DIR$/canciones.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SenseSound/Store/BuscarCancion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SenseSound/Store/BuscarCancion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CancionCatalogo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sense1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SenseSound/Store/ManejoSaldo.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SenseSound/Store/Metodos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SenseSound/Store/Metodos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SenseSound/Store/operacionesCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SenseSound/Store/operacionesCliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saldo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saldo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SenseSound/Store/PaginaHTML.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SenseSound/Store/PaginaHTML.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SenseSound/Store/trialSong.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SenseSound/WEB/CalculadorasMercadoLibre.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Store/BuscarCancion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/BuscarCancion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store/Cancion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/Cancion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Store/ManejoSaldo.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Store/Metodos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/Metodos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store/openBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/openBrowser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store/operacionesCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/operacionesCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WEB/CalculadorasMercadoLibre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WEB/CalculadorasMercadoLibre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Store/PaginaHTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/PaginaHTML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Store/trialSong.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WEB/CalculadorasMercadoLibre.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,26 +126,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Canciones.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SenseSound/Canciones.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="MisCanciones.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SenseSound/MisCanciones.html" useBuiltInWebServerPort="true">
+    <configuration name="Sense1.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SenseSound/Sense1.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Application.Store" />
       <item itemvalue="Application.CalculadorasMercadoLibre" />
       <item itemvalue="Application.BuscarCancion" />
+      <item itemvalue="JavaScript Debug.Sense1.html" />
       <item itemvalue="JavaScript Debug.Canciones.html" />
-      <item itemvalue="JavaScript Debug.MisCanciones.html" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Store" />
+        <item itemvalue="JavaScript Debug.Canciones.html" />
+        <item itemvalue="JavaScript Debug.Sense1.html" />
         <item itemvalue="Application.BuscarCancion" />
         <item itemvalue="Application.CalculadorasMercadoLibre" />
-        <item itemvalue="JavaScript Debug.MisCanciones.html" />
-        <item itemvalue="JavaScript Debug.Canciones.html" />
       </list>
     </recent_temporary>
   </component>
@@ -210,6 +213,7 @@
       <workItem from="1622174793360" duration="6899000" />
       <workItem from="1622183231158" duration="2784000" />
       <workItem from="1622186607316" duration="383000" />
+      <workItem from="1622213792919" duration="3214000" />
     </task>
     <servers />
   </component>
@@ -241,22 +245,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1622108824165" />
-    <state width="1367" height="672" key="GridCell.Tab.0.bottom" timestamp="1622186281996">
+    <state width="1370" height="18" key="GridCell.Tab.0.bottom" timestamp="1622216107125">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="672" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1622186281996" />
-    <state width="1367" height="672" key="GridCell.Tab.0.center" timestamp="1622186281996">
+    <state width="1370" height="18" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1622216107125" />
+    <state width="1370" height="18" key="GridCell.Tab.0.center" timestamp="1622216107125">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="672" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1622186281996" />
-    <state width="1367" height="672" key="GridCell.Tab.0.left" timestamp="1622186281996">
+    <state width="1370" height="18" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1622216107125" />
+    <state width="1370" height="18" key="GridCell.Tab.0.left" timestamp="1622216107125">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="672" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1622186281996" />
-    <state width="1367" height="672" key="GridCell.Tab.0.right" timestamp="1622186281996">
+    <state width="1370" height="18" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1622216107125" />
+    <state width="1370" height="18" key="GridCell.Tab.0.right" timestamp="1622216107125">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="672" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1622186281996" />
+    <state width="1370" height="18" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1622216107125" />
     <state x="184" y="8" key="SettingsEditor" timestamp="1621741837384">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -5,12 +5,11 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class PaginaHTML {
-    private String nombrepagina;
-    private Archivo filex = new Archivo("cancionesCompradas.txt");
-    private Archivo trials = new Archivo("canciones.txt");
-    private ArrayList<Cancion> listPurchasedSongs;
-    private ArrayList<Cancion> listSongs;
-    private Metodos m = new Metodos();
+    private final String nombrepagina;
+    private final Archivo filex = new Archivo("cancionesCompradas.txt");
+    private final Archivo trials = new Archivo("canciones.txt");
+    private final ArrayList<Cancion> listPurchasedSongs;
+    private final ArrayList<Cancion> listSongs;
 
     public PaginaHTML(String nombreA) {
         this.nombrepagina = nombreA;

@@ -2,11 +2,11 @@ package Store;
 
 import java.io.*;
 import java.util.*;
-public class BuscarCancion {
+/*public class BuscarCancion {
     public static void main(String[] args) throws FileNotFoundException {
         Archivo filex = new Archivo("canciones.txt");
         ArrayList<Cancion> listSongs;
-        Scanner tcanciones = new Scanner(archivo);
+        Scanner tcanciones = new Scanner();
         Scanner entrada = new Scanner(System.in);
         String cancion;
         System.out.print("¿Qué canción deseas buscar? ");
@@ -27,3 +27,5 @@ public class BuscarCancion {
         }
     }
 }
+
+         */

@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Metodos {
-    static ManejoSaldo credito = new ManejoSaldo();
     String nombreUsuario;
     String contrasena;
     double cantidad;
@@ -15,7 +14,6 @@ public class Metodos {
     static Archivo filex = new Archivo("canciones.txt");
     static openBrowser navegador = new openBrowser();
     static operacionesCliente op = new operacionesCliente();
-    static int aux = 0;
 
 
     public void SenseSoundLogo() {
@@ -36,19 +34,13 @@ public class Metodos {
                 opcion = in.nextInt();
                 in.nextLine();
                 switch (opcion) {
-                    case 1:
-                        login();
-                        break;
-                    case 2:
+                    case 1 -> login();
+                    case 2 -> {
                         signIn();
                         InicioGeneral();
-                        break;
-                    case 3:
-                        System.exit(0);
-                        break;
-                    default:
-                        System.out.println("Opción invalida");
-                        break;
+                    }
+                    case 3 -> System.exit(0);
+                    default -> System.out.println("Opción invalida");
                 }
             } catch (java.util.InputMismatchException e) {
                 System.out.println("Error: Ingreso una cadena de texto\nIngrese cualquier dato para continuar...");
@@ -133,37 +125,26 @@ public class Metodos {
             System.out.print("--> ");
             opcion = in.nextInt();
             switch (opcion) {
-                case 1:
+                case 1 -> {
                     requestDataSong();
                     filex.writeInFile(catalogueStore.getListOfSongs());
                     showSongs();
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     deleteSong();
                     filex.writeInFile(catalogueStore.getListOfSongs());
                     showSongs();
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     renameSong();
                     filex.writeInFile(catalogueStore.getListOfSongs());
                     showSongs();
-                    break;
-                case 4:
-                    searchSongByKey();
-                    break;
-                case 5:
-                    showSongs();
-                    break;
-                case 6:
-                    webCatalogoCompleto();
-                    navegador.abrirNavegadorPorDefecto("CancionCatalogo.html");
-                    break;
-                case 7:
-                    InicioGeneral();
-                    break;
-                default:
-                    System.out.println("Opción invalida");
-                    break;
+                }
+                case 4 -> searchSongByKey();
+                case 5 -> showSongs();
+                case 6 -> navegador.abrirNavegadorPorDefecto("Canciones.html");
+                case 7 -> InicioGeneral();
+                default -> System.out.println("Opción invalida");
             }
         } while (opcion != 7);
     }
@@ -183,30 +164,21 @@ public class Metodos {
             System.out.print("--> ");
             opcion = in.nextInt();
             switch (opcion) {
-                case 1:
+                case 1 -> {
                     crearWebTrial();
                     navegador.abrirNavegadorPorDefecto("CancionesTrial.html");
                     panelUsuarios();
-                    break;
-                case 2:
-                    comprarCancion();
-                    break;
-                case 3:
+                }
+                case 2 -> comprarCancion();
+                case 3 -> {
                     op.seeBuySongs();
                     webCancionesCompradas();
                     navegador.abrirNavegadorPorDefecto("miscancionesprueba.html");
-                    break;
-                case 4:
-                    senseCoins();
-                    break;
-                case 5:
-                    comprarSenseCoins();
-                    break;
-                case 6:
-                    InicioGeneral();
-                    break;
-                default:
-                    System.out.println("Opción invalida");
+                }
+                case 4 -> senseCoins();
+                case 5 -> comprarSenseCoins();
+                case 6 -> InicioGeneral();
+                default -> System.out.println("Opción invalida");
             }
         } while (opcion != 6);
 
@@ -362,14 +334,7 @@ public class Metodos {
             e.printStackTrace();
         }
         setSenseCoins((int) (getSenseCoins() + cantidad));
-        crearWeb();
 
-    }
-
-
-    public void abrirWeb() throws IOException {
-        openBrowser op = new openBrowser();
-        op.abrirNavegadorPorDefecto("Sense1.html");
     }
 
     public void cancionesCompradas() throws IOException {
@@ -407,644 +372,10 @@ public class Metodos {
 
     }
 
-    public void webCatalogoCompleto() throws FileNotFoundException {
-        PrintWriter catalogoWeb = new PrintWriter("CancionCatalogo.html");
-        catalogoWeb.println("<!DOCTYPE html>\n" +
-                "<html lang=\"en\">\n" +
-                "<head>\n" +
-                "\t<meta charset=\"UTF-8\">\n" +
-                "\t<meta name=\"SenseStore\" content=\"Siempre hay musica para escuchar\" />\n" +
-                "\t<meta content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\" name=\"viewport\">\n" +
-                "\n" +
-                "\t<title>SenseSound-DEV-Catalogo</title>\n" +
-                "\t<link rel=\"shortcut icon\" href=\"img/circleBlack.png\">\n" +
-                "\t<link rel=\"stylesheet\" href=\"css/menu.css\">\n" +
-                "\n" +
-                "\n" +
-                "</head>\n" +
-                "\n" +
-                "<body bgcolor=\"1D1D1F\"><!--676E71/2EC77A/1D1D1F-->\n" +
-                "\t<div id=\"sidemenu\" class=\"menu-collapsed\">\n" +
-                "\t\t<div id=\"header\">\n" +
-                "\t\t\t<div id=\"menu-btn\">\n" +
-                "\t\t\t\t<div class=\"btn-hamburger\"></div>\n" +
-                "\t\t\t\t<div class=\"btn-hamburger\"></div>\n" +
-                "\t\t\t\t<div class=\"btn-hamburger\"></div>\n" +
-                "\t\t\t</div>\n" +
-                "\t\t</div>\n" +
-                "\t\t\n" +
-                "\t\t<div id=\"menu-items\">\n" +
-                "\t\t\t<div class=\"item\">\n" +
-                "\t\t\t\t<a href=\"#\">\n" +
-                "\t\t\t\t\t<div class=\"title\"><span><a href=\"#pop\">POP</a></span></div><br>\n" +
-                "\t\t\t\t\t<div class=\"title\"><span><a href=\"#banda\">BANDA</a></span></div><br>\n" +
-                "\t\t\t\t\t<div class=\"title\"><span><a href=\"#cumbias\">CUMBIAS</a></span></div><br>\n" +
-                "\t\t\t\t\t<div class=\"title\"><span><a href=\"#dance\">DANCE</a></span></div><br>\n" +
-                "\t\t\t\t\t<div class=\"title\"><span><a href=\"#regueton\">REGUETON</a></span></div><br>\n" +
-                "\t\t\t\t\t<div class=\"title\"><span><a href=\"#rock\">ROCK</a></span></div><br>\n" +
-                "\t\t\t\t\t<div class=\"title\"><span><a href=\"#urbano\">URBANO</a></span></div>\n" +
-                "\t\t\t\t</a>\n" +
-                "\t\t\t</div>\n" +
-                "\t\t</div>\n" +
-                "\t</div>\n" +
-                "\t<div id=\"main-container\">\n" +
-                "\t\t<div align=\"center\">\n" +
-                "\t\t\t<img src=\"img/circleW.png\" width=\"400\" height=\"400\" alt=\"logoInicio\">\n" +
-                "\t\t</div>\n" +
-                "\t\t<section>\n" +
-                "\t\t\t<table align=\"right\">\n" +
-                "\t\t\t\t<tr>\n" +
-                "\t\t\t\t\t<td>\n" +
-                "\t\t\t\t\t\t<img src=\"img/senseCoin.png\" width=\"70\" height=\"70\">\n" +
-                "\t\t\t\t\t</td>\n" +
-                "\t\t\t\t\t<td>\n" +
-                "\t\t\t\t\t\t<h3 style=\"color:#FDFEFE\">SenseCoins<br><h3  align=\"center\" style=\"color:#FDFEFE\">" + getSenseCoins() + "</h3></h3>\n" +
-                "\t\t\t\t\t</td>\n" +
-                "\t\t\t\t</tr>\n" +
-                "\t\t\t</table>\n" +
-                "\t\t</section>\n" +
-                "\n" +
-                "\t\t<p><h2 align=\"left\" style=\"color:#FDFEFE\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bienvenido a SenseStore</h2></p>\n" +
-                "\t\t<p><h3 align=\"left\" style=\"color:#FDFEFE\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Todos los días se descubre una canción</h3></p>\n" +
-                "\t\t</section>\n" +
-                "\t\t<div align=\"center\">\n" +
-                "\t\t\t<img src=\"img/linea.png\" width=\"1550\" height=\"30\">\n" +
-                "\t\t</div>\n" +
-                "\t\t<div align=\"center\">\n" +
-                "\t\t\t\n" +
-                "\t\t\t<h1 align=\"center\" style=\"color:#FDFEFE\"><a name=\"pop\">| POP |</a></h1>\n" +
-                "\t\t\t\n" +
-                "\t\t</div>\n" +
-                "\n" +
-                "\t\t<table class=\"default\" align=\"center\" style=\"color:#FDFEFE\">\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/pop/morat.png\" width=\"265\" height=\"265\"></td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/pop/feelings.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/pop/cd9.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/pop/teAmo.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/pop/BPink.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Como te atreves a volver<br>Morat<br><i>#00020</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">In my feelings<br>DRAKE<br><i>#00021</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">No le hablen de amor<br>CD9<br><i>#00022</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Te amo<br>Piso 21 & Paulo Londra<br><i>#00023</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">How you like that<br>BlackPink<br><i>#00024</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/pop/ComoTeAtrevesAVolver.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/pop/InMyFeelings.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/pop/NoLeHablenDeAmor.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/pop/TeAmo.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/pop/HowYouLikeThat.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h1 align=\"center\"><a name=\"banda\">| Banda |</a></h1>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/banda/detengas.png\" width=\"265\" height=\"265\"></td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/banda/elcolor.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/banda/aTraves.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/banda/detengas.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/banda/aerolinea1.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Por mi no te detengas<br>Banda MS<br><i>#00025</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">El color de tus ojos<br>Banda MS<br><i>#00026</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">A traves del vaso<br>Banda Los Sebastianes<br><i>#00027</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Las cosas no se hacen así<br>Banda MS<br><i>#00028</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Aerolinea carrillo<br>Tercer Elemento<br><i>#0029</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/banda/PorMiNoTeDetengas.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/banda/ElColorDeTusOjos.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/banda/ATravesDelVaso.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/banda/LasCosasNoSeHacenAsi.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/banda/AerolineaCarrillo.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h1 align=\"center\"><a name=\"cumbias\">| Cumbias |</a></h1>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/cumbias/acariñame.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/cumbias/oye.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/cumbias/17años.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/cumbias/oye.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/cumbias/misSen.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Acariñame\n" +
-                "\t\t\t\t\t\t<br>Julieta Venegas & Los Angeles Azules<br><i>#00030</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Oye mujer<br>Raymix<br><i>#00031</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">17 años<br>Los Angeles Azules<br><i>#00032</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Primer Beso<br>Raymix<br><i>#00033</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Mis sentimientos<br>Los Angeles Azules <br>& Ximena Sariñana<br><i>#00034</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/cumbias/Acariñame.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/cumbias/OyeMujer.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/cumbias/17años.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/cumbias/PrimerBeso.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/cumbias/MisSentimientos.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t\t\t\t\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h1 align=\"center\"><a name=\"dance\">| Dance |</a></h1>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/dance/inMy.png\" width=\"265\" height=\"265\"></td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/dance/turnItUp.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/dance/bailaConmigo.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/dance/alPacino.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/dance/enzo.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">In my mind<br>Dynoro & D´ Agostino<br><i>#00035</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Turn it up<br>Armin Van Buuren<br><i>#00036</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Baila conmigo<br>Victor Cardenas feat. Kelly Ruiz<br><i>#00037</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Al pacino<br>Timmy Trumpet<br><i>#00038</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Enzo<br>DJ Snake<br><i>#00039</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/dance/InMyMind.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/dance/TurnItUp.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/dance/BailaConmigo.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/dance/AlPacino.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/dance/Enzo.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h1 align=\"center\"><a name=\"regueton\"></a>| Regueton |</a></h1>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/regueton/nadie.png\" width=\"265\" height=\"265\"></td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/regueton/otroTrago.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/regueton/rebota.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/regueton/HP.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/regueton/daddy.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">NADIE<br>Sech Remix<br><i>#00040</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Otro trago Remix<br>Sech & Darell & Nicky Jam & Ozuna<br><i>#00041</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Rebota<br>Guaynaa<br><i>#00042</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">HP<br>Maluma<br><i>#00043</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Con calma<br>Daddy Yankee<br><i>#00044</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/regueton/Nadie.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/regueton/OtroTrago.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/regueton/Rebota.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/regueton/HP.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/regueton/ConCalma.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h1 align=\"center\"><a name=\"rock\"></a>| Rock |</a></h1>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/rock/hotel.png\" width=\"265\" height=\"265\"></td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/rock/loveYou.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/rock/rem.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/rock/sweet.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/rock/happy.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Hotel California<br>The Eagles<br><i>#00045</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">I just called to say I love you<br>Stevie Wonder<br><i>#00046</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Losing my religion<br>R.E.M<br><i>#00047</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Sweet dreams<br>Eurythmics<br><i>#00048</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Happy together<br>The turtles<br><i>#00049</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/rock/HotelCalifornia.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/rock/OnlyCallToSayILoveYou.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/rock/LosingMyReligion.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/rock/SweetDreams.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/rock/HappyTogheter.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h1 align=\"center\"><a name=\"urbano\">| Urbano |</a></h1>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t\t<td></td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/urbana/tini.png\" width=\"265\" height=\"265\"></td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/urbana/talVez.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/urbana/novio.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/urbana/alone.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<img src=\"sound/complete/urbana/talVez.png\" width=\"265\" height=\"265\">\n" +
-                "\t\t\t\t\t<img src=\"img/lineaCircularVertical.png\" width=\"30\" height=\"265\">\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Oye<br>Taini feat. Sebastian Yatra<br><i>#00050</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Tal vez<br>Paulo Londa<br><i>#00051</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Ya no tiene novio<br>Sebastian Yatra & Mau y Ricky<br><i>#00052</i><br><img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Forever alone<br>Paulo Londra<br><i>#00053</i><br>\n" +
-                "\t\t\t\t\t<img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h4 align=\"center\">Solo pienso en ti<br>Paulo Londra ft. De la Guetto<br><i>#00054</i><br>\n" +
-                "\t\t\t\t\t<img src=\"img/senseCoin.png\" width=\"30\" height=\"30\" align=\"center\">15 coins</h4>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/urbana/Oye.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/urbana/TalVez.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/urbana/YaNoTieneNovio.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/urbana/ForeverAlone.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<audio width=\"100\" controls>\n" +
-                "\t\t\t\t\t\t<source src=\"sound/complete/urbana/SoloPiensoEnTi.mp3\" type=\"audio/mp3\">\n" +
-                "\t\t\t\t\t</audio>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t</table>\n" +
-                "\n" +
-                "\t\t<div align=\"center\">\n" +
-                "\t\t\t<img src=\"img/linea.png\" width=\"1550\" height=\"30\">\n" +
-                "\t\t</div>\n" +
-                "\t\t\n" +
-                "\t<footer>\n" +
-                "\t\t<table align=\"center\">\n" +
-                "\t\t\t<tbody style=\"background: rgba(22, 153, 219, .6); border: 1px solid rgba(100, 200, 0, 0.3);\" align=\"center\">\n" +
-                "\t\t\t<tr>\n" +
-                "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<div align=\"center\">\n" +
-                "\t\t\t\t\t\t<h4 align=\"center\" style=\"color:#FDFEFE\">\n" +
-                "\t\t\t\t\t\t&nbsp;&nbsp;\"  Estas son algunas muestras por favor dirigete al programa de compra &nbsp;&nbsp;<br>ingresa su codigo y disfruta las canciones completas \"\n" +
-                "\t\t\t\t\t</h4>\n" +
-                "\t\t\t\t\t</div>\n" +
-                "\t\t\t\t</td>\n" +
-                "\t\t\t</tr>\n" +
-                "\t\t</table>\n" +
-                "\t\t<h5 align=\"right\" style=\"color:#FDFEFE\">Derechos reservados & Copyright  SenseSound 2020 - 2021</h5>\n" +
-                "\t</footer>\n" +
-                "    </div>\n" +
-                "\t<script>\n" +
-                "\t\tconst btn = document.querySelector('#menu-btn');\n" +
-                "\t\tconst menu = document.querySelector('#sidemenu');\n" +
-                "\t\tbtn.addEventListener('click', e =>{\n" +
-                "\t\t\tmenu.classList.toggle(\"menu-expanded\");\n" +
-                "\t\t\tmenu.classList.toggle(\"menu-collapsed\");\n" +
-                "\t\t\tdocument.querySelector('body').classList.toggle('body-expanded');\n" +
-                "\t\t});\n" +
-                "\t</script>\n" +
-                "</body>\n" +
-                "\n" +
-                "</html>");
-    }
-
     public void webCancionesCompradas() {
         String nombre = "miscancionesprueba.html";
         PaginaHTML pagina = new PaginaHTML(nombre);
         pagina.makeWeb();
-    }
-
-    public void crearWeb() throws FileNotFoundException {
-        String nombre = "Sense1.html";
-        PaginaHTML pag = new PaginaHTML(nombre);
     }
 
     public void crearWebTrial() {
