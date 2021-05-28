@@ -1,0 +1,35 @@
+20,Como te atreves a volver,Morat,Pop,sound/complete/pop/morat.png,Morat,sound/complete/pop/ComoTeAtrevesAVolver.mp3,30.0
+21,In my feelings,Drake,Pop,sound/complete/pop/feelings.png,pop,sound/complete/pop/InMyFeelings.mp3,30.0
+22,No le hablen de amor,CD9,Pop,sound/complete/pop/cd9.png,pop,sound/complete/pop/NoLeHablenDeAmor.mp3,25.0
+23,Te amo,Piso 21&Paulo Londra,pop,sound/complete/pop/teAmo.png,pop,sound/complete/pop/TeAmo.mp3,15.0
+24,How you like that,BlackPink,pop,sound/complete/pop/BPink.png,pop,sound/complete/pop/HowYouLikeThat.mp3,40.0
+25,Por mi no te detengas,Banda MS,Banda,sound/complete/banda/detengas.png,Banda,sound/complete/banda/PorMiNoTeDetengas.mp3,22.0
+26,El color de tus ojos,Banda MS,Banda,sound/complete/banda/elcolor.png,Banda,sound/complete/banda/ElColorDeTusOjos.mp3,20.0
+27,A traves del vaso,Banda Los Sebastianes,Banda,sound/complete/banda/aTraves.png,Banda,sound/complete/banda/ATravesDelVaso.mp3,18.0
+28,Las cosas no se hacen así,Banda MS,Banda,sound/complete/banda/detengas.png,Banda,sound/complete/banda/LasCosasNoSeHacenAsi.mp3,25.0
+29,Aerolinea Carrillo,T3rcer Elemnto,Banda,sound/complete/banda/aerolinea1.png,Banda,sound/complete/banda/AerolineaCarrillo.mp3,10.0
+30,Acariñame,Julieta V & Los ngeles Azules,Cumbias,sound/complete/cumbias/acariñame.png,Cumbias,sound/complete/cumbias/Acariñame.mp3,18.0
+31,Oye mujer,Raymix,Cumbias,sound/complete/cumbias/oye.png,Cumbias,sound/complete/cumbias/OyeMujer.mp3,20.0
+32,17Años,Los angeles azules,Cumbias,sound/complete/cumbias/17años.png,Cumbias,sound/complete/cumbias/17años.mp3,25.0
+33,Primer beso,Raymix,Cumbias,sound/complete/cumbias/oye.png,Cumbias,sound/complete/cumbias/PrimerBeso.mp3,10.0
+34,Mis sentimientos,Los angeles zules & Ximena S.,Cumbias,sound/complete/cumbias/misSen.png,cumbias,sound/complete/cumbias/MisSentimientos.mp3,19.0
+35,In my mind,Ginoro D Agostino,Dance,sound/complete/dance/inMy.png,Dance,sound/complete/dance/InMyMind.mp3,40.0
+36,Turn It Up!,Armin Van Buuren,Dance,sound/complete/dance/turnItUp.png,Dance,sound/complete/dance/TurnItUp.mp3,35.0
+37,Baila conmigo,Kelly Ruiz,Dance,sound/complete/dance/bailaConmigo.png,Dance,sound/complete/dance/BailaConmigo.mp3,28.0
+38,Al pacino,Timmy Trumpet,Dance,sound/complete/dance/alPacino.png,Dance,sound/complete/dance/AlPacino.mp3,28.0
+39,Enzo,DJ Snake,Dance,sound/complete/dance/enzo.png,Dance,sound/complete/dance/Enzo.mp3,25.0
+40,Nadie,Sech,Regueton,sound/complete/regueton/nadie.png,Regueton,sound/complete/regueton/Nadie.mp3,20.0
+41,Otro trago Remix,Sech & Darell & Nicky J & zuna,Regueton,sound/complete/regueton/otroTrago.png,Regueton,sound/complete/regueton/OtroTrago.mp3,19.0
+42,Rebota,Guaynaa,Regueton,sound/complete/regueton/rebota.png,Regueton,sound/complete/regueton/Rebota.mp3,22.0
+43,HP,Maluma,Regueton,sound/complete/regueton/HP.png,Regueton,sound/complete/regueton/HP.mp3,15.0
+44,Con calma,Daddy Yankee,Regueton,sound/complete/regueton/daddy.png,Regueton,sound/complete/regueton/ConCalma.mp3,30.0
+45,Hotel California,The eagles,Rock,sound/complete/rock/hotel.png,Rock,sound/complete/rock/HotelCalifornia.mp3,20.0
+46,I just call to say I love u,Stevie Wonder,Rock,sound/complete/rock/loveYou.png,Rock,sound/complete/rock/OnlyCallToSayILoveYou.mp3,23.0
+47,Losing my religion,REM,Rock,sound/complete/rock/rem.png,Rock,sound/complete/rock/LosingMyReligion.mp3,25.0
+48,Sweet Dreams,Eurythmics,Rock,sound/complete/rock/sweet.png,Rock,sound/complete/rock/SweetDreams.mp3,30.0
+49,Happy together,The turtles,Rock,sound/complete/rock/happy.png,Rock,sound/complete/rock/HappyTogheter.mp3,15.0
+50,Oye,Taini & Sebastian Yatra,Rock,sound/complete/urbana/tini.png,Urbana,sound/complete/urbana/Oye.mp3,28.0
+51,Tal vez,Paulo Londra,Urbano,sound/complete/urbana/talVez.png,Urbana,sound/complete/urbana/TalVez.mp3,20.0
+52,Ya no tiene novio,Sebastian Yatra & Mau y Ricky,Urbana,sound/complete/urbana/novio.png,Urbana,sound/complete/urbana/YaNoTieneNovio.mp3,28.0
+53,Forever alone,Paulo Londra,Urbana,sound/complete/urbana/alone.png,Urbana,sound/complete/urbana/TalVez.mp3,20.0
+54,Solo pienso en ti,Paulo Londra ft. De la Guetto,Urbana,sound/complete/urbana/talvez.png,Urbana,sound/complete/urbana/SoloPiensoEnTi.mp3,26.0

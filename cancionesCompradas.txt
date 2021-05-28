@@ -1,0 +1,3 @@
+28,Las cosas no se hacen así,Banda MS,Banda,sound/complete/banda/detengas.png,Banda,sound/complete/banda/LasCosasNoSeHacenAsi.mp3,25.0
+35,In my mind,Ginoro D Agostino,Dance,sound/complete/dance/inMy.png,Dance,sound/complete/dance/InMyMind.mp3,40.0
+45,Hotel California,The eagles,Rock,sound/complete/rock/hotel.png,Rock,sound/complete/rock/HotelCalifornia.mp3,20.0
